@@ -13,5 +13,17 @@ class SecondActivity : AppCompatActivity() {
         binding = ActivitySecondBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
+        val intent  = intent.extras
+        if (intent != null) {
+            val name        = intent.getString("name")
+            val age         = intent.getString("age")
+            val occupation  = intent.getString("occupation")
+            val country     = intent.getString("country")
+
+            binding.textView2.text = "Hey, my name is $name, i'm $age old, i'm $occupation and i'm living in $country"
+        } else {
+            binding.textView2.text = "Vai cazzo"
+        }
     }
 }
